@@ -1,9 +1,11 @@
 <?php
+# Component 介面
 interface Course {
     public function getCost();
 }
 
-
+# ConcreteComponent
+// 課程
 class BaseCourse implements Course{
     protected $basePrice = 2600;
     
@@ -13,6 +15,7 @@ class BaseCourse implements Course{
     }
 }
 
+# Decorator 介面
 abstract class CourseDecorator implements Course{
     protected $course;
     public function __construct(Course $course){
@@ -24,6 +27,8 @@ abstract class CourseDecorator implements Course{
     }
 }
 
+# ConcreteDecorator
+// 吉他
 class Guitar extends CourseDecorator{
     protected $guitarPrice = 4980;
     
@@ -33,6 +38,8 @@ class Guitar extends CourseDecorator{
     }
 }
 
+# ConcreteDecorator
+// 調音器
 class Tuner extends CourseDecorator{
     protected $tunerPrice = 120;
     
