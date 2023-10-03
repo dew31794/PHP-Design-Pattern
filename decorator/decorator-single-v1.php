@@ -8,7 +8,6 @@ abstract class IComponent {
     abstract public function getPrice();
 }
 
-
 # ConcreteComponent 具體元件
 class BasicSite extends IComponent {
     public function __construct(){
