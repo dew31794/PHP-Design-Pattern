@@ -33,7 +33,7 @@ class ConcreteAggregate implements IteratorAggregate
  */
 class ConcreteIterator implements Iterator
 {
-    private $key = 0;
+    private $key = 0; //目前指向位子
     private $data = [];
 
     public function __construct($data)
@@ -91,21 +91,28 @@ class ConcreteIterator implements Iterator
     }
 }
 
-// Client 客戶端
+# Client 客戶端
 $concreteAggregate = new ConcreteAggregate();
+
+// 往迭代器增加資料
 $concreteAggregate->add('鍋子');
 $concreteAggregate->add('柯達押');
 $concreteAggregate->add('侯子');
 $concreteAggregate->add('賴皮鬼');
 
+// 透過聚合取得實作
 $concreteIterator = $concreteAggregate->getIterator();
 foreach ($concreteIterator as $concrete) {
     echo $concrete . "<br>";
 }
 
-    $values = array('鍋子','柯達押','侯子','賴皮鬼');
-    $it = new ConcreteIterator($values);
-    foreach ($it as $key => $value) {
-        echo '鍵值'.$key.':'.$value. "<br>";
-    }
+// 迭代對象
+$values = array('鍋子','柯達押','侯子','賴皮鬼');
+// 進行迭代操作
+$it = new ConcreteIterator($values);
+foreach ($it as $key => $value) {
+    echo '鍵值'.$key.':'.$value. "<br>";
+}
+
+
 ?>
